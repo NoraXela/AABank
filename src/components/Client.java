@@ -2,7 +2,7 @@ package components;
 
 //import java.util.LinkedList;
 
-// Exercise 1.1.1 Creation of the client class
+// Exercise 1.1.1 Creation of the Client class
 public class Client {
 	private static int counter = 0;
 	private int clientNo;
@@ -49,14 +49,6 @@ public class Client {
 	@Override
 	public String toString() {
 		return "Client " + clientNo + ", Name: " + name + ", First Name: " + firstName;
-	}
-
-	public static void main(String[] args) {
-		Client myClient1 = new Client("name1", "firstname1");
-		System.out.println(myClient1.toString());
-
-		Client myClient2 = new Client("name2", "firstname2");
-		System.out.println(myClient2.toString());
 	}
 
 }
