@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import components.Account;
 import components.Client;
@@ -58,6 +59,20 @@ public class Main {
 		}
 	}
 
+	// Exercise 1.3.1 Adaptation of the table of accounts
+	// Creating HashMap
+	static HashMap<Integer, Account> createAccountTable(ArrayList<Account> inAccountList) {
+		HashMap<Integer, Account> accountTable = new HashMap<Integer, Account>();
+		for (int i = 0; i < inAccountList.size(); i++) {
+			// Current account for client i
+			Integer hmIndex = i + 1;
+			accountTable.put(hmIndex, inAccountList.get(i));
+		}
+		// System.out.println(clientList);
+		System.out.println(accountTable);
+		return accountTable;
+	}
+
 	public static void main(String[] args) {
 		// Creating client list
 		ArrayList<Client> myClientList = createClientList(3);
@@ -71,5 +86,9 @@ public class Main {
 		// Test Account
 //		CurrentAccount newAccount = new CurrentAccount("label1", myClientList.get(0));
 //		System.out.println(newAccount);
+
+		// Exercise 1.3.1 Adaptation of the table of accounts
+		// Hashmap
+		HashMap<Integer, Account> myAccountTable = createAccountTable(myAccountList);
 	}
 }
