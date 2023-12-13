@@ -59,10 +59,12 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
+		// Creating client list
 		ArrayList<Client> myClientList = createClientList(3);
 //		Client myClient = new Client("name1", "firstname1");
 		showClientList(myClientList);
 
+		// Creating accounts list
 		ArrayList<Account> myAccountList = createAccountList(myClientList);
 		showAccountList(myAccountList);
 

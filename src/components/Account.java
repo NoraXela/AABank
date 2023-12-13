@@ -37,8 +37,9 @@ public abstract class Account {
 	// Constructor
 	public Account(String inLabel, Client inClient) {
 		label = inLabel;
-		myClient = new Client(inClient.getName(), inClient.getFirstName());
-		myClient.setClientNo(inClient.getClientNo());
+		myClient = inClient;
+//		myClient = new Client(inClient.getName(), inClient.getFirstName());
+//		myClient.setClientNo(inClient.getClientNo());
 //		myClient.setName(inClient.getName());
 //		myClient.setFirstName(inClient.getFirstName());
 		counter++;
@@ -47,8 +48,8 @@ public abstract class Account {
 
 	@Override
 	public String toString() {
-		return "Client account: " + myClient + ", Account no.: " + accountNo + ", Label: " + label + ", Balance: "
-				+ balance;
+		return "Label: " + label + ", Balance: " + balance + ", Account no.: " + accountNo + ", Client account: "
+				+ myClient;
 	}
 
 }
