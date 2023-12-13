@@ -65,8 +65,7 @@ public class Main {
 		HashMap<Integer, Account> accountTable = new HashMap<Integer, Account>();
 		for (int i = 0; i < inAccountList.size(); i++) {
 			// Current account for client i
-			Integer hmIndex = i + 1;
-			accountTable.put(hmIndex, inAccountList.get(i));
+			accountTable.put(inAccountList.get(i).getAccountNo(), inAccountList.get(i));
 		}
 		// System.out.println(clientList);
 		System.out.println(accountTable);
