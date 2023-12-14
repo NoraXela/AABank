@@ -123,6 +123,7 @@ public class Main {
 		System.out.println("");
 		System.out.println("Flow list:");
 		for (int i = 0; i < flowList.size(); i++) {
+			System.out.println(flowList.get(i).getClass().toString());
 			System.out.println(flowList.get(i));
 		}
 		return flowList;
@@ -147,5 +148,10 @@ public class Main {
 
 		// Exercise 1.3.4 Creation of the flow array
 		ArrayList<Flow> myFlowList = createFlowList(myAccountList);
+		// TEST of flows updating accounts
+		System.out.println("");
+		System.out.println("Account in question: " + myAccountList.get(0));
+		System.out.println("Flow in question   : " + myFlowList.get(7));
+		myAccountList.get(1).setBalance(myFlowList.get(7));
 	}
 }
