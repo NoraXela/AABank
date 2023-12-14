@@ -1,0 +1,68 @@
+package components;
+
+import java.util.Date;
+
+//Exercise 1.3.2 Creation of the Flow class
+public abstract class Flow {
+	private String comment;
+	private int identifier;
+	private double amount;
+	private int targetAccountNo;
+	private boolean effect;
+	private Date dateOfFlow;
+
+	// Getters
+	public String getComment() {
+		return comment;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public int getIdentifier() {
+		return identifier;
+	}
+
+	public int getTargetAccountNo() {
+		return targetAccountNo;
+	}
+
+	public boolean isEffect() {
+		return effect;
+	}
+
+	public Date getDateOfFlow() {
+		return dateOfFlow;
+	}
+
+	// Setters
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public void setIdentifier(int identifier) {
+		this.identifier = identifier;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public void setTargetAccountNo(int targetAccountNo) {
+		this.targetAccountNo = targetAccountNo;
+	}
+
+	public void setEffect(boolean effect) {
+		this.effect = effect;
+	}
+
+	public void setDateOfFlow(Date dateOfFlow) {
+		this.dateOfFlow = dateOfFlow;
+	}
+
+	public Flow() {
+
+	}
+
+}

@@ -18,10 +18,8 @@ public class Main {
 			String newClientName = "name" + (i + 1);
 			String newClientFirstName = "firstname" + (i + 1);
 			Client newClient = new Client(newClientName, newClientFirstName);
-//			System.out.println(newClient);
 			clientList.add(newClient);
 		}
-//		System.out.println(clientList);
 		return clientList;
 	}
 
@@ -43,15 +41,12 @@ public class Main {
 			// Current account for client i
 			String newAccountLabel = "Current Account";
 			CurrentAccount newAccount1 = new CurrentAccount(newAccountLabel, inClientList.get(i));
-//			System.out.println(newAccount1);
 			accountList.add(newAccount1);
 			// Savings account for client i
 			newAccountLabel = "Savings Account";
 			SavingsAccount newAccount2 = new SavingsAccount(newAccountLabel, inClientList.get(i));
-//			System.out.println(newAccount2);
 			accountList.add(newAccount2);
 		}
-		// System.out.println(clientList);
 		return accountList;
 	}
 
@@ -67,13 +62,11 @@ public class Main {
 	static HashMap<Integer, Account> createAccountTable(ArrayList<Account> inAccountList) {
 		HashMap<Integer, Account> accountTable = new HashMap<Integer, Account>();
 		for (int i = 0; i < inAccountList.size(); i++) {
-			// Current account for client i
+			// Current account for client i + 1
 			// Ex method working fine, but not for sorted table, a pitty really
 			// accountTable.put(inAccountList.get(i).getAccountNo(), inAccountList.get(i));
 			accountTable.put((i + 1), inAccountList.get(i));
 		}
-		// System.out.println(clientList);
-//		System.out.println(accountTable);
 		return accountTable;
 	}
 
@@ -84,21 +77,13 @@ public class Main {
 		for (int i = 0; i < dispAccountTable.size(); i++) {
 			System.out.println(dispAccountTable.get(i + 1));
 		}
-//		System.out.println("Sorted HashMap:");
-//		dispAccountTable.entrySet()
-//		                .stream()
-//		                .sorted(dispAccountTable.Entry.<Integer, Account>comparingBykey())
-//		                .forEach(System.out:println);
 	}
 
 	// Showing Sorted HashMap
 	static void showSortedAccountTable(ArrayList<Account> inAccountList) {
 		ArrayList<Account> clonedAccountList = inAccountList;
 		clonedAccountList.sort((o1, o2) -> o1.getBalance().compareTo(o2.getBalance()));
-//		System.out.println("Sorted clonedAccountList:");
-//		showAccountList(clonedAccountList);
 		HashMap<Integer, Account> dispAccountTable2 = createAccountTable(clonedAccountList);
-//		System.out.println("clonedAccountList 0 " + clonedAccountList.get(0));
 		System.out.println("");
 		System.out.println("Sorted HashMap:");
 		for (int i = 0; i < dispAccountTable2.size(); i++) {
@@ -109,21 +94,11 @@ public class Main {
 	public static void main(String[] args) {
 		// Creating client list
 		ArrayList<Client> myClientList = createClientList(3);
-//		Client myClient = new Client("name1", "firstname1");
 		showClientList(myClientList);
 
 		// Creating accounts list
 		ArrayList<Account> myAccountList = createAccountList(myClientList);
 		showAccountList(myAccountList);
-
-		// SORTING ARRAYLIST !!!
-//		myAccountList.sort((o1, o2) -> o1.getBalance().compareTo(o2.getBalance()));
-//		System.out.println("Sorted list:");
-//		showAccountList(myAccountList);
-
-		// Test Account
-//		CurrentAccount newAccount = new CurrentAccount("label1", myClientList.get(0));
-//		System.out.println(newAccount);
 
 		// Exercise 1.3.1 Adaptation of the table of accounts
 		// Hashmap
