@@ -3,6 +3,7 @@ package main;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.function.Predicate;
 
 import components.Account;
 import components.Client;
@@ -132,6 +133,7 @@ public class Main {
 	// Exercise 1.3.5 Updating accounts
 	static void updateAccounts(ArrayList<Flow> inFlowList, HashMap<Integer, Account> inAccountTable) {
 		for (int i = 0; i < inFlowList.size(); i++) {
+			int compAccountNo;
 			String flowType = inFlowList.get(i).getClass().toString();
 			System.out.println("Flow type: " + flowType);
 			if (flowType.equals("class components.Transfer")) {
@@ -141,11 +143,21 @@ public class Main {
 				inAccountTable.get(updAccountNo).setBalance(inTransferFlow);
 				updAccountNo = inTransferFlow.getIssuingAccountNo();
 				inAccountTable.get(updAccountNo).setBalance(inTransferFlow);
+				compAccountNo = updAccountNo;
 			} else {
 				System.out.println("ELSE");
 				int updAccountNo = inFlowList.get(i).getTargetAccountNo();
 				inAccountTable.get(updAccountNo).setBalance(inFlowList.get(i));
 				System.out.println(updAccountNo);
+				compAccountNo = updAccountNo;
+			}
+			// checking if account below zero
+			Predicate<Double> lessThanZero = j -> (j < 0.0);
+			if (lessThanZero.test(inAccountTable.get(compAccountNo).getBalance())) {
+				System.out.println("");
+				System.out.println("**********************************************");
+				System.out.println("!!! Account number " + compAccountNo + " has balance below zero!!!");
+				System.out.println("**********************************************");
 			}
 		}
 	}
@@ -153,7 +165,7 @@ public class Main {
 	public static void main(String[] args) {
 		// Exercise 1.1.2 Creation of main class for tests
 		// Creating client list
-		ArrayList<Client> myClientList = createClientList(3);
+		ArrayList<Client> myClientList = createClientList(4);
 		showClientList(myClientList);
 
 		// Exercise 1.2.3 Creation of the tablea account
@@ -181,5 +193,6 @@ public class Main {
 		updateAccounts(myFlowList, myAccountTable);
 		showAccountTable(myAccountTable);
 		showSortedAccountTable(myAccountList);
+
 	}
 }

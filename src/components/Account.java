@@ -69,8 +69,7 @@ public abstract class Account {
 //		myClient.setFirstName(inClient.getFirstName());
 		counter++;
 		accountNo = counter;
-		// test
-		// balance = (double) (10 - accountNo);
+		// test for negative balance
 		// balance = (double) (accountNo - 10);
 	}
 
