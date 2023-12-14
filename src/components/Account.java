@@ -27,28 +27,20 @@ public abstract class Account {
 	}
 
 	public void setBalance(Flow newFlow) {
-		System.out.println(newFlow.getClass().toString());
 		switch (newFlow.getClass().toString()) {
 		case "class components.Credit":
-			System.out.println("Case 1");
 			this.balance = this.balance + newFlow.getAmount();
 			break;
 		case "class components.Debit":
-			System.out.println("Case 2");
 			this.balance = this.balance - newFlow.getAmount();
 			break;
 		case "class components.Transfer":
-			System.out.println("Case 3");
 			Transfer newTransferFlow = (Transfer) newFlow;
-			System.out.println(this.accountNo);
-			System.out.println(newTransferFlow.getTargetAccountNo());
-			System.out.println("Old balance: " + this.balance);
 			if (this.accountNo == newTransferFlow.getTargetAccountNo()) {
 				this.balance = this.balance + newTransferFlow.getAmount();
 			} else if (this.accountNo == newTransferFlow.getIssuingAccountNo()) {
 				this.balance = this.balance - newTransferFlow.getAmount();
 			}
-			System.out.println("New balance: " + this.balance);
 			break;
 		default:
 			System.out.println("DEFAULT");

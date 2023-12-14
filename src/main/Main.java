@@ -122,7 +122,6 @@ public class Main {
 		System.out.println("");
 		System.out.println("Flow list:");
 		for (int i = 0; i < flowList.size(); i++) {
-			System.out.println(flowList.get(i).getClass().toString());
 			System.out.println(flowList.get(i));
 		}
 		return flowList;
@@ -130,12 +129,11 @@ public class Main {
 
 	// Exercise 1.3.5 Updating accounts
 	static void updateAccounts(ArrayList<Flow> inFlowList, HashMap<Integer, Account> inAccountTable) {
+		System.out.println("Updating accounts...");
 		for (int i = 0; i < inFlowList.size(); i++) {
 			int compAccountNo;
 			String flowType = inFlowList.get(i).getClass().toString();
-			System.out.println("Flow type: " + flowType);
 			if (flowType.equals("class components.Transfer")) {
-				System.out.println("IF");
 				Transfer inTransferFlow = (Transfer) inFlowList.get(i);
 				int updAccountNo = inTransferFlow.getTargetAccountNo();
 				inAccountTable.get(updAccountNo).setBalance(inTransferFlow);
@@ -143,19 +141,20 @@ public class Main {
 				inAccountTable.get(updAccountNo).setBalance(inTransferFlow);
 				compAccountNo = updAccountNo;
 			} else {
-				System.out.println("ELSE");
 				int updAccountNo = inFlowList.get(i).getTargetAccountNo();
 				inAccountTable.get(updAccountNo).setBalance(inFlowList.get(i));
-				System.out.println(updAccountNo);
 				compAccountNo = updAccountNo;
 			}
 			// checking if account below zero
 			Predicate<Double> lessThanZero = j -> (j < 0.0);
 			if (lessThanZero.test(inAccountTable.get(compAccountNo).getBalance())) {
-				System.out.println("");
-				System.out.println("**********************************************");
-				System.out.println("!!! Account number " + compAccountNo + " has balance below zero!!!");
-				System.out.println("**********************************************");
+				System.out.println("***********************************************");
+				System.out.println("!!! Account number " + compAccountNo + " has balance below zero !!!");
+				System.out.println(
+						"!!! Because of Flow no: " + (inFlowList.get(i).getIdentifier()) + "                   !!!");
+				System.out.println("!!! Balance: " + (inAccountTable.get(compAccountNo).getBalance())
+						+ "                          !!!");
+				System.out.println("***********************************************");
 			}
 		}
 	}
