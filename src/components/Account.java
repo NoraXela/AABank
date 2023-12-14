@@ -3,7 +3,7 @@ package components;
 //Exercise 1.2.1 Creation of the Account class
 public abstract class Account {
 	protected String label;
-	protected double balance;
+	protected Double balance = 0.0;
 	protected static int counter = 0;
 	protected int accountNo;
 	protected Client myClient;
@@ -13,7 +13,7 @@ public abstract class Account {
 		return label;
 	}
 
-	public double getBalance() {
+	public Double getBalance() {
 		return balance;
 	}
 
@@ -44,6 +44,8 @@ public abstract class Account {
 //		myClient.setFirstName(inClient.getFirstName());
 		counter++;
 		accountNo = counter;
+		// test
+		balance = (double) (10 - accountNo);
 	}
 
 	@Override

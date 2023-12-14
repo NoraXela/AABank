@@ -27,6 +27,7 @@ public class Main {
 
 	// Showing client list
 	static void showClientList(ArrayList<Client> dispClientList) {
+		System.out.println("Clients:");
 		for (int i = 0; i < dispClientList.size(); i++) {
 			System.out.println(dispClientList.get(i));
 		}
@@ -36,6 +37,7 @@ public class Main {
 	// Creating Account List
 	static ArrayList<Account> createAccountList(ArrayList<Client> inClientList) {
 		ArrayList<Account> accountList = new ArrayList<Account>();
+		System.out.println("Accounts:");
 		for (int i = 0; i < inClientList.size(); i++) {
 			// Current account for client i
 			String newAccountLabel = "Current Account";
@@ -68,8 +70,22 @@ public class Main {
 			accountTable.put(inAccountList.get(i).getAccountNo(), inAccountList.get(i));
 		}
 		// System.out.println(clientList);
-		System.out.println(accountTable);
+//		System.out.println(accountTable);
 		return accountTable;
+	}
+
+	// Showing HashMap
+	static void showAccountTable(HashMap<Integer, Account> dispAccountTable) {
+		System.out.println("HashMap:");
+		for (int i = 0; i < dispAccountTable.size(); i++) {
+			System.out.println(dispAccountTable.get(i + 1));
+		}
+		System.out.println("Sorted HashMap:");
+//		dispAccountTable.entrySet()
+//		                .stream()
+//		                .sorted(dispAccountTable.Entry.<Integer, Account>comparingBykey())
+//		                .forEach(System.out:println);
+
 	}
 
 	public static void main(String[] args) {
@@ -82,6 +98,11 @@ public class Main {
 		ArrayList<Account> myAccountList = createAccountList(myClientList);
 		showAccountList(myAccountList);
 
+		// SORTING ARRAYLIST !!!
+		myAccountList.sort((o1, o2) -> o1.getBalance().compareTo(o2.getBalance()));
+		System.out.println("Sorted list:");
+		showAccountList(myAccountList);
+
 		// Test Account
 //		CurrentAccount newAccount = new CurrentAccount("label1", myClientList.get(0));
 //		System.out.println(newAccount);
@@ -89,5 +110,6 @@ public class Main {
 		// Exercise 1.3.1 Adaptation of the table of accounts
 		// Hashmap
 		HashMap<Integer, Account> myAccountTable = createAccountTable(myAccountList);
+		showAccountTable(myAccountTable);
 	}
 }
