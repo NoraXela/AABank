@@ -30,12 +30,15 @@ public abstract class Account {
 		System.out.println(newFlow.getClass().toString());
 		switch (newFlow.getClass().toString()) {
 		case "class components.Credit":
+			System.out.println("Case 1");
 			this.balance = this.balance + newFlow.getAmount();
 			break;
 		case "class components.Debit":
+			System.out.println("Case 2");
 			this.balance = this.balance - newFlow.getAmount();
 			break;
 		case "class components.Transfer":
+			System.out.println("Case 3");
 			Transfer newTransferFlow = (Transfer) newFlow;
 			System.out.println(this.accountNo);
 			System.out.println(newTransferFlow.getTargetAccountNo());

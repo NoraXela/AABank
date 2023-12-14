@@ -132,8 +132,9 @@ public class Main {
 	// Exercise 1.3.5 Updating accounts
 	static void updateAccounts(ArrayList<Flow> inFlowList, HashMap<Integer, Account> inAccountTable) {
 		for (int i = 0; i < inFlowList.size(); i++) {
-			System.out.println("Flow type: " + inFlowList.get(i).getClass().toString());
-			if (inFlowList.get(i).getClass().toString() == "class components.Transfer") {
+			String flowType = inFlowList.get(i).getClass().toString();
+			System.out.println("Flow type: " + flowType);
+			if (flowType.equals("class components.Transfer")) {
 				System.out.println("IF");
 				Transfer inTransferFlow = (Transfer) inFlowList.get(i);
 				int updAccountNo = inTransferFlow.getTargetAccountNo();
@@ -173,7 +174,7 @@ public class Main {
 		System.out.println("");
 		System.out.println("Account in question: " + myAccountList.get(0));
 		System.out.println("Flow in question   : " + myFlowList.get(7));
-		myAccountList.get(0).setBalance(myFlowList.get(7));
+//		myAccountList.get(0).setBalance(myFlowList.get(7));
 
 		// Exercise 1.3.5 Updating accounts
 		System.out.println("");
