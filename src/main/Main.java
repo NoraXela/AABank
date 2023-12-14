@@ -129,8 +129,10 @@ public class Main {
 
 	// Exercise 1.3.5 Updating accounts
 	static void updateAccounts(ArrayList<Flow> inFlowList, HashMap<Integer, Account> inAccountTable) {
+		System.out.println("");
 		System.out.println("Updating accounts...");
 		for (int i = 0; i < inFlowList.size(); i++) {
+			// For transfers, two updates, one for target account, one for issuing account
 			int compAccountNo;
 			String flowType = inFlowList.get(i).getClass().toString();
 			if (flowType.equals("class components.Transfer")) {
@@ -180,7 +182,6 @@ public class Main {
 		ArrayList<Flow> myFlowList = createFlowList(myAccountList);
 
 		// Exercise 1.3.5 Updating accounts
-		System.out.println("");
 		updateAccounts(myFlowList, myAccountTable);
 		showAccountTable(myAccountTable);
 		showSortedAccountTable(myAccountList);
