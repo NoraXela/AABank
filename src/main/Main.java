@@ -129,6 +129,26 @@ public class Main {
 		return flowList;
 	}
 
+	// Exercise 1.3.5 Updating accounts
+	static void updateAccounts(ArrayList<Flow> inFlowList, HashMap<Integer, Account> inAccountTable) {
+		for (int i = 0; i < inFlowList.size(); i++) {
+			System.out.println("Flow type: " + inFlowList.get(i).getClass().toString());
+			if (inFlowList.get(i).getClass().toString() == "class components.Transfer") {
+				System.out.println("IF");
+				Transfer inTransferFlow = (Transfer) inFlowList.get(i);
+				int updAccountNo = inTransferFlow.getTargetAccountNo();
+				inAccountTable.get(updAccountNo).setBalance(inTransferFlow);
+				updAccountNo = inTransferFlow.getIssuingAccountNo();
+				inAccountTable.get(updAccountNo).setBalance(inTransferFlow);
+			} else {
+				System.out.println("ELSE");
+				int updAccountNo = inFlowList.get(i).getTargetAccountNo();
+				inAccountTable.get(updAccountNo).setBalance(inFlowList.get(i));
+				System.out.println(updAccountNo);
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		// Exercise 1.1.2 Creation of main class for tests
 		// Creating client list
@@ -148,10 +168,17 @@ public class Main {
 
 		// Exercise 1.3.4 Creation of the flow array
 		ArrayList<Flow> myFlowList = createFlowList(myAccountList);
+
 		// TEST of flows updating accounts
 		System.out.println("");
 		System.out.println("Account in question: " + myAccountList.get(0));
 		System.out.println("Flow in question   : " + myFlowList.get(7));
-		myAccountList.get(1).setBalance(myFlowList.get(7));
+		myAccountList.get(0).setBalance(myFlowList.get(7));
+
+		// Exercise 1.3.5 Updating accounts
+		System.out.println("");
+		updateAccounts(myFlowList, myAccountTable);
+		showAccountTable(myAccountTable);
+		showSortedAccountTable(myAccountList);
 	}
 }

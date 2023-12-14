@@ -31,8 +31,10 @@ public abstract class Account {
 		switch (newFlow.getClass().toString()) {
 		case "class components.Credit":
 			this.balance = this.balance + newFlow.getAmount();
+			break;
 		case "class components.Debit":
 			this.balance = this.balance - newFlow.getAmount();
+			break;
 		case "class components.Transfer":
 			Transfer newTransferFlow = (Transfer) newFlow;
 			System.out.println(this.accountNo);
@@ -44,6 +46,9 @@ public abstract class Account {
 				this.balance = this.balance - newTransferFlow.getAmount();
 			}
 			System.out.println("New balance: " + this.balance);
+			break;
+		default:
+			System.out.println("DEFAULT");
 		}
 	}
 
@@ -62,7 +67,8 @@ public abstract class Account {
 		counter++;
 		accountNo = counter;
 		// test
-		balance = (double) (10 - accountNo);
+		// balance = (double) (10 - accountNo);
+		// balance = (double) (accountNo - 10);
 	}
 
 	@Override
