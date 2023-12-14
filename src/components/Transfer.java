@@ -7,14 +7,17 @@ public class Transfer extends Flow {
 
 	public int issuingAccountNo;
 
+	// Getter for extra field
 	public int getIssuingAccountNo() {
 		return issuingAccountNo;
 	}
 
+	// Setter for extra field
 	public void setIssuingAccountNo(int issuingAccountNo) {
 		this.issuingAccountNo = issuingAccountNo;
 	}
 
+	// Constructor
 	public Transfer(double amount, int targetAccountNo, LocalDate dateOfFlow, int issuingAccountNo) {
 		super(amount, targetAccountNo, dateOfFlow);
 		// TODO Auto-generated constructor stub

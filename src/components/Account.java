@@ -63,13 +63,9 @@ public abstract class Account {
 	public Account(String inLabel, Client inClient) {
 		label = inLabel;
 		myClient = inClient;
-//		myClient = new Client(inClient.getName(), inClient.getFirstName());
-//		myClient.setClientNo(inClient.getClientNo());
-//		myClient.setName(inClient.getName());
-//		myClient.setFirstName(inClient.getFirstName());
 		counter++;
 		accountNo = counter;
-		// test for negative balance
+		// Test for negative balance
 		// balance = (double) (accountNo - 10);
 	}
 

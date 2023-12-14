@@ -1,5 +1,6 @@
 package components;
 
+//Exercise 1.2.2 Creation of the CurrentAccount and SavingsAccount
 public class SavingsAccount extends Account {
 
 	public SavingsAccount(String inLabel, Client inClient) {

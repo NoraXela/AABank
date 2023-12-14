@@ -101,8 +101,6 @@ public class Main {
 	// Creating Flow Array
 	static ArrayList<Flow> createFlowList(ArrayList<Account> inAccountList) {
 		ArrayList<Flow> flowList = new ArrayList<Flow>();
-//		System.out.println("");
-//		System.out.println("Flows:");
 		LocalDate flowDate = LocalDate.now().plusDays(2);
 		// Flow 1
 		Debit newDebitFlow = new Debit(50.0, 1, flowDate);
@@ -177,16 +175,10 @@ public class Main {
 		// Hashmap
 		HashMap<Integer, Account> myAccountTable = createAccountTable(myAccountList);
 		showAccountTable(myAccountTable);
-		showSortedAccountTable(myAccountList);
+		// showSortedAccountTable(myAccountList);
 
 		// Exercise 1.3.4 Creation of the flow array
 		ArrayList<Flow> myFlowList = createFlowList(myAccountList);
-
-		// TEST of flows updating accounts
-		System.out.println("");
-		System.out.println("Account in question: " + myAccountList.get(0));
-		System.out.println("Flow in question   : " + myFlowList.get(7));
-//		myAccountList.get(0).setBalance(myFlowList.get(7));
 
 		// Exercise 1.3.5 Updating accounts
 		System.out.println("");

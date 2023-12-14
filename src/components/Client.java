@@ -6,7 +6,6 @@ package components;
 public class Client {
 	private static int counter = 0;
 	private int clientNo;
-//	private LinkedList<Integer> clientNoList = new LinkedList<Integer>();
 	private String name;
 	private String firstName;
 
@@ -36,14 +35,12 @@ public class Client {
 		this.firstName = newFirstName;
 	}
 
+	// Constructor
 	public Client(String inName, String inFirstName) {
 		name = inName;
 		firstName = inFirstName;
 		counter++;
 		clientNo = counter;
-//		clientNoList.add(clientNo++);
-//		System.out.println(clientNoList);
-//		clientNo = clientNoList.getLast();
 	}
 
 	@Override
