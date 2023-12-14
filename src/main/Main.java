@@ -40,8 +40,6 @@ public class Main {
 	// Creating Account List
 	static ArrayList<Account> createAccountList(ArrayList<Client> inClientList) {
 		ArrayList<Account> accountList = new ArrayList<Account>();
-		System.out.println("");
-		System.out.println("Accounts:");
 		for (int i = 0; i < inClientList.size(); i++) {
 			// Current account for client i
 			String newAccountLabel = "Current Account";
@@ -57,6 +55,8 @@ public class Main {
 
 	// Showing account list
 	static void showAccountList(ArrayList<Account> dispAccountList) {
+		System.out.println("");
+		System.out.println("Accounts:");
 		for (int i = 0; i < dispAccountList.size(); i++) {
 			System.out.println(dispAccountList.get(i));
 		}
@@ -86,7 +86,7 @@ public class Main {
 
 	// Showing Sorted HashMap
 	static void showSortedAccountTable(ArrayList<Account> inAccountList) {
-		ArrayList<Account> clonedAccountList = inAccountList;
+		ArrayList<Account> clonedAccountList = (ArrayList<Account>) inAccountList.clone();
 		clonedAccountList.sort((o1, o2) -> o1.getBalance().compareTo(o2.getBalance()));
 		HashMap<Integer, Account> dispAccountTable2 = createAccountTable(clonedAccountList);
 		System.out.println("");
@@ -119,15 +119,6 @@ public class Main {
 		// Flow 4
 		Transfer newTransferFlow = new Transfer(50.0, 2, flowDate, 1);
 		flowList.add(newTransferFlow);
-		/*
-		 * OLD for (int i = 0; i < inClientList.size(); i++) { // Current account for
-		 * client i String newAccountLabel = "Current Account"; CurrentAccount
-		 * newAccount1 = new CurrentAccount(newAccountLabel, inClientList.get(i));
-		 * accountList.add(newAccount1); // Savings account for client i newAccountLabel
-		 * = "Savings Account"; SavingsAccount newAccount2 = new
-		 * SavingsAccount(newAccountLabel, inClientList.get(i));
-		 * accountList.add(newAccount2); //END-OLD
-		 */
 		// DISPLAY FLOW ARRAY
 		System.out.println("");
 		System.out.println("Flow list:");
