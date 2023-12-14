@@ -1,5 +1,11 @@
 package main;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -161,6 +167,17 @@ public class Main {
 		}
 	}
 
+	static void writeJsonFile() {
+		System.out.println("");
+		System.out.println("Writing JSON File...");
+		Path path = Paths.get("JSON Flow Array.txt");
+		try (BufferedWriter writer = Files.newBufferedWriter(path, Charset.forName("UTF-8"))) {
+			writer.write("To be, or not to be. That is the question.");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) {
 		// Exercise 1.1.2 Creation of main class for tests
 		// Creating client list
@@ -186,5 +203,7 @@ public class Main {
 		showAccountTable(myAccountTable);
 		showSortedAccountTable(myAccountList);
 
+		// Exercise 2.1 JSON file of flows
+		writeJsonFile();
 	}
 }
