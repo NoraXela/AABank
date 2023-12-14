@@ -1,12 +1,17 @@
 package main;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import components.Account;
 import components.Client;
+import components.Credit;
 import components.CurrentAccount;
+import components.Debit;
+import components.Flow;
 import components.SavingsAccount;
+import components.Transfer;
 
 //Exercise 1.1.2 Creation of the Main class
 public class Main {
@@ -91,11 +96,54 @@ public class Main {
 		}
 	}
 
+	// Exercise 1.3.4 Creation of the flow array
+	// Creating Flow Array
+	static ArrayList<Flow> createFlowList(ArrayList<Account> inAccountList) {
+		ArrayList<Flow> flowList = new ArrayList<Flow>();
+//		System.out.println("");
+//		System.out.println("Flows:");
+		LocalDate flowDate = LocalDate.now().plusDays(2);
+		// Flow 1
+		Debit newDebitFlow = new Debit(50.0, 1, flowDate);
+		flowList.add(newDebitFlow);
+		// Flow 2 and 3 for each current account and savings account respectively
+		for (int i = 0; i < inAccountList.size(); i++) {
+			if (inAccountList.get(i).getLabel() == "Current Account") {
+				Credit newCreditFlow = new Credit(100.50, inAccountList.get(i).getAccountNo(), flowDate);
+				flowList.add(newCreditFlow);
+			} else {
+				Credit newCreditFlow = new Credit(1500, inAccountList.get(i).getAccountNo(), flowDate);
+				flowList.add(newCreditFlow);
+			}
+		}
+		// Flow 4
+		Transfer newTransferFlow = new Transfer(50.0, 2, flowDate, 1);
+		flowList.add(newTransferFlow);
+		/*
+		 * OLD for (int i = 0; i < inClientList.size(); i++) { // Current account for
+		 * client i String newAccountLabel = "Current Account"; CurrentAccount
+		 * newAccount1 = new CurrentAccount(newAccountLabel, inClientList.get(i));
+		 * accountList.add(newAccount1); // Savings account for client i newAccountLabel
+		 * = "Savings Account"; SavingsAccount newAccount2 = new
+		 * SavingsAccount(newAccountLabel, inClientList.get(i));
+		 * accountList.add(newAccount2); //END-OLD
+		 */
+		// DISPLAY FLOW ARRAY
+		System.out.println("");
+		System.out.println("Flow list:");
+		for (int i = 0; i < flowList.size(); i++) {
+			System.out.println(flowList.get(i));
+		}
+		return flowList;
+	}
+
 	public static void main(String[] args) {
+		// Exercise 1.1.2 Creation of main class for tests
 		// Creating client list
 		ArrayList<Client> myClientList = createClientList(3);
 		showClientList(myClientList);
 
+		// Exercise 1.2.3 Creation of the tablea account
 		// Creating accounts list
 		ArrayList<Account> myAccountList = createAccountList(myClientList);
 		showAccountList(myAccountList);
@@ -105,5 +153,8 @@ public class Main {
 		HashMap<Integer, Account> myAccountTable = createAccountTable(myAccountList);
 		showAccountTable(myAccountTable);
 		showSortedAccountTable(myAccountList);
+
+		// Exercise 1.3.4 Creation of the flow array
+		ArrayList<Flow> myFlowList = createFlowList(myAccountList);
 	}
 }

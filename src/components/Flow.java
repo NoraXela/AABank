@@ -1,15 +1,16 @@
 package components;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 //Exercise 1.3.2 Creation of the Flow class
 public abstract class Flow {
 	private String comment;
+	private static int counter = 0;
 	private int identifier;
 	private double amount;
 	private int targetAccountNo;
 	private boolean effect;
-	private Date dateOfFlow;
+	private LocalDate dateOfFlow;
 
 	// Getters
 	public String getComment() {
@@ -32,7 +33,7 @@ public abstract class Flow {
 		return effect;
 	}
 
-	public Date getDateOfFlow() {
+	public LocalDate getDateOfFlow() {
 		return dateOfFlow;
 	}
 
@@ -57,12 +58,23 @@ public abstract class Flow {
 		this.effect = effect;
 	}
 
-	public void setDateOfFlow(Date dateOfFlow) {
+	public void setDateOfFlow(LocalDate dateOfFlow) {
 		this.dateOfFlow = dateOfFlow;
 	}
 
-	public Flow() {
+	// Constructor
+	public Flow(double amount, int targetAccountNo, LocalDate dateOfFlow) {
+		this.amount = amount;
+		this.targetAccountNo = targetAccountNo;
+		this.dateOfFlow = dateOfFlow;
+		counter++;
+		identifier = counter;
+	}
 
+	@Override
+	public String toString() {
+		return "Flow identifier: " + identifier + ", Amount: " + amount + ", Target account no.: " + targetAccountNo
+				+ ", Effect: " + effect + ", Date: " + dateOfFlow;
 	}
 
 }

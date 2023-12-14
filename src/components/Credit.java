@@ -1,6 +1,13 @@
 package components;
 
+import java.time.LocalDate;
+
 //Exercise 1.3.3 Creation of the Transfert, Credit, Debit classes
 public class Credit extends Flow {
+
+	public Credit(double amount, int targetAccountNo, LocalDate dateOfFlow) {
+		super(amount, targetAccountNo, dateOfFlow);
+		// TODO Auto-generated constructor stub
+	}
 
 }
