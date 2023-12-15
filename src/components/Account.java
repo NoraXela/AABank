@@ -21,6 +21,10 @@ public abstract class Account {
 		return accountNo;
 	}
 
+	public Client getClient() {
+		return myClient;
+	}
+
 	// Setters
 	public void setLabel(String newLabel) {
 		this.label = newLabel;

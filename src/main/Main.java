@@ -227,6 +227,92 @@ public class Main {
 		writeNewLine(stringToWrite, path);
 	}
 
+	// 2.2 XML file of account
+	static void writeXmlFile(HashMap<Integer, Account> inAccountList) {
+		System.out.println("");
+		System.out.println("Writing XML File...");
+		String path = "XML Account Array.XML";
+
+		// Write begin bracket [
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+//			writer.write(inAccountList.toString());
+			writer.write("<?xml version=\"1.0\"?>");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		// Write root element
+		String stringToWrite = "<accounts>";
+		writeNewLine(stringToWrite, path);
+
+		for (int i = 0; i < inAccountList.size(); i++) {
+			stringToWrite = "\t<instance>";
+			writeNewLine(stringToWrite, path);
+			stringToWrite = "\t\t<index>" + (i + 1) + "</index>";
+			writeNewLine(stringToWrite, path);
+			stringToWrite = "\t\t<account>";
+			writeNewLine(stringToWrite, path);
+			stringToWrite = "\t\t\t<label>" + inAccountList.get(i + 1).getLabel() + "</label>";
+			writeNewLine(stringToWrite, path);
+			stringToWrite = "\t\t\t<balance>" + inAccountList.get(i + 1).getBalance() + "</balance>";
+			writeNewLine(stringToWrite, path);
+			stringToWrite = "\t\t\t<account-number>" + inAccountList.get(i + 1).getAccountNo() + "</account-number>";
+			writeNewLine(stringToWrite, path);
+			stringToWrite = "\t\t\t<client>";
+			writeNewLine(stringToWrite, path);
+			stringToWrite = "\t\t\t\t<client-account>" + inAccountList.get(i + 1).getClient().getClientNo()
+					+ "</client-account>";
+			writeNewLine(stringToWrite, path);
+			stringToWrite = "\t\t\t\t<client-name>" + inAccountList.get(i + 1).getClient().getName() + "</client-name>";
+			writeNewLine(stringToWrite, path);
+			stringToWrite = "\t\t\t\t<client-first-name>" + inAccountList.get(i + 1).getClient().getFirstName()
+					+ "</client-first-name>";
+			writeNewLine(stringToWrite, path);
+			stringToWrite = "\t\t\t</client>";
+			writeNewLine(stringToWrite, path);
+			stringToWrite = "\t\t</account>";
+			writeNewLine(stringToWrite, path);
+//			// Start of individual Flow
+//			String stringToWrite = "\t{";
+//			writeNewLine(stringToWrite, path);
+//			// Body
+//			// comment
+//			if (inAccountList.get(i).getComment() == null) {
+//				stringToWrite = "\t\t\"comment\": " + inAccountList.get(i).getComment() + ",";
+//			} else {
+//				stringToWrite = "\t\t\"comment\": \"" + inAccountList.get(i).getComment() + "\",";
+//			}
+//			writeNewLine(stringToWrite, path);
+//			// identifier
+//			stringToWrite = "\t\t\"identifier\": " + inAccountList.get(i).getIdentifier() + ",";
+//			writeNewLine(stringToWrite, path);
+//			// amount
+//			stringToWrite = "\t\t\"amount\": " + inAccountList.get(i).getAmount() + ",";
+//			writeNewLine(stringToWrite, path);
+//			// target account number
+//			stringToWrite = "\t\t\"targetAccountNo\": " + inAccountList.get(i).getTargetAccountNo() + ",";
+//			writeNewLine(stringToWrite, path);
+//			// effect
+//			stringToWrite = "\t\t\"effect\": " + inAccountList.get(i).isEffect() + ",";
+//			writeNewLine(stringToWrite, path);
+//			// Date of Flow
+//			stringToWrite = "\t\t\"dateOfFlow\": \"" + inAccountList.get(i).getDateOfFlow() + "\"";
+//			writeNewLine(stringToWrite, path);
+//			// End of individual Flow
+//			if (i != (inAccountList.size() - 1)) {
+//				stringToWrite = "\t},";
+//				writeNewLine(stringToWrite, path);
+//			} else {
+//				stringToWrite = "\t}";
+//				writeNewLine(stringToWrite, path);
+//			}
+			stringToWrite = "\t</instance>";
+			writeNewLine(stringToWrite, path);
+		}
+		// Write end-root
+		stringToWrite = "</accounts>";
+		writeNewLine(stringToWrite, path);
+	}
+
 	public static void main(String[] args) {
 		// Exercise 1.1.2 Creation of main class for tests
 		// Creating client list
@@ -254,5 +340,8 @@ public class Main {
 
 		// Exercise 2.1 JSON file of flows
 		writeJsonFile(myFlowList);
+
+		// Exercise 2.2 XML file of account
+		writeXmlFile(myAccountTable);
 	}
 }
