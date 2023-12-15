@@ -165,9 +165,8 @@ public class Main {
 	}
 
 	// Exercise 2.1 JSON file of flows
-	static void writeNewLine(String inStringToWrite) {
-		String path = "JSON Flow Array.JSON";
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, true))) {
+	static void writeNewLine(String inStringToWrite, String inPath) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(inPath, true))) {
 			writer.newLine();
 			writer.write(inStringToWrite);
 		} catch (IOException ex) {
@@ -180,16 +179,17 @@ public class Main {
 		System.out.println("Writing JSON File...");
 		String path = "JSON Flow Array.JSON";
 
+		// Write begin bracket [
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
 			writer.write("[");
-//			writer.write(inFlowList.get(0).toString());
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
 
 		for (int i = 0; i < inFlowList.size(); i++) {
+			// Start of individual Flow
 			String stringToWrite = "\t{";
-			writeNewLine(stringToWrite);
+			writeNewLine(stringToWrite, path);
 			// Body
 			// comment
 			if (inFlowList.get(i).getComment() == null) {
@@ -197,52 +197,35 @@ public class Main {
 			} else {
 				stringToWrite = "\t\t\"comment\": \"" + inFlowList.get(i).getComment() + "\",";
 			}
-			writeNewLine(stringToWrite);
+			writeNewLine(stringToWrite, path);
 			// identifier
 			stringToWrite = "\t\t\"identifier\": " + inFlowList.get(0).getIdentifier() + ",";
-			writeNewLine(stringToWrite);
+			writeNewLine(stringToWrite, path);
 			// amount
 			stringToWrite = "\t\t\"amount\": " + inFlowList.get(i).getAmount() + ",";
-			writeNewLine(stringToWrite);
+			writeNewLine(stringToWrite, path);
 			// target account number
 			stringToWrite = "\t\t\"targetAccountNo\": " + inFlowList.get(i).getTargetAccountNo() + ",";
-			writeNewLine(stringToWrite);
+			writeNewLine(stringToWrite, path);
 			// effect
 			stringToWrite = "\t\t\"effect\": " + inFlowList.get(i).isEffect() + ",";
-			writeNewLine(stringToWrite);
+			writeNewLine(stringToWrite, path);
 			// Date of Flow
 			stringToWrite = "\t\t\"dateOfFlow\": \"" + inFlowList.get(i).getDateOfFlow() + "\"";
-			writeNewLine(stringToWrite);
+			writeNewLine(stringToWrite, path);
 			// End of individual Flow
 			if (i != (inFlowList.size() - 1)) {
 				stringToWrite = "\t},";
-				writeNewLine(stringToWrite);
+				writeNewLine(stringToWrite, path);
 			} else {
 				stringToWrite = "\t}";
-				writeNewLine(stringToWrite);
+				writeNewLine(stringToWrite, path);
 			}
-//			try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, true))) {
-//				writer.newLine();
-//				writer.write("\t}");
-//			} catch (IOException ex) {
-//				ex.printStackTrace();
-//			}
 		}
 		// Write ending bracket ]
 		String stringToWrite = "]";
-		writeNewLine(stringToWrite);
+		writeNewLine(stringToWrite, path);
 	}
-
-//	static void writeJsonFile(ArrayList<Flow> inFlowList) {
-//		System.out.println("");
-//		System.out.println("Writing JSON File...");
-//		Path path = Paths.get("JSON Flow Array.JSON");
-//		try (BufferedWriter writer = Files.newBufferedWriter(path, Charset.forName("UTF-8"))) {
-//			writer.write(inFlowList.get(0).toString());
-//		} catch (IOException ex) {
-//			ex.printStackTrace();
-//		}
-//	}
 
 	public static void main(String[] args) {
 		// Exercise 1.1.2 Creation of main class for tests
