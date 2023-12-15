@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<accounts>
+	<instance>
+		<index>1</index>
+		<account>
+			<label>Current Account</label>
+			<balance>0.5</balance>
+			<account-number>1</account-number>
+			<client>
+				<client-account>1</client-account>
+				<client-name>name1</client-name>
+				<client-first-name>firstname1</client-first-name>
+			</client>
+		</account>
+	</instance>
+	<instance>
+		<index>2</index>
+		<account>
+			<label>Savings Account</label>
+			<balance>1550.0</balance>
+			<account-number>2</account-number>
+			<client>
+				<client-account>1</client-account>
+				<client-name>name1</client-name>
+				<client-first-name>firstname1</client-first-name>
+			</client>
+		</account>
+	</instance>
+	<instance>
+		<index>3</index>
+		<account>
+			<label>Current Account</label>
+			<balance>100.5</balance>
+			<account-number>3</account-number>
+			<client>
+				<client-account>2</client-account>
+				<client-name>name2</client-name>
+				<client-first-name>firstname2</client-first-name>
+			</client>
+		</account>
+	</instance>
+	<instance>
+		<index>4</index>
+		<account>
+			<label>Savings Account</label>
+			<balance>1500.0</balance>
+			<account-number>4</account-number>
+			<client>
+				<client-account>2</client-account>
+				<client-name>name2</client-name>
+				<client-first-name>firstname2</client-first-name>
+			</client>
+		</account>
+	</instance>
+	<instance>
+		<index>5</index>
+		<account>
+			<label>Current Account</label>
+			<balance>100.5</balance>
+			<account-number>5</account-number>
+			<client>
+				<client-account>3</client-account>
+				<client-name>name3</client-name>
+				<client-first-name>firstname3</client-first-name>
+			</client>
+		</account>
+	</instance>
+	<instance>
+		<index>6</index>
+		<account>
+			<label>Savings Account</label>
+			<balance>1500.0</balance>
+			<account-number>6</account-number>
+			<client>
+				<client-account>3</client-account>
+				<client-name>name3</client-name>
+				<client-first-name>firstname3</client-first-name>
+			</client>
+		</account>
+	</instance>
+	<instance>
+		<index>7</index>
+		<account>
+			<label>Current Account</label>
+			<balance>100.5</balance>
+			<account-number>7</account-number>
+			<client>
+				<client-account>4</client-account>
+				<client-name>name4</client-name>
+				<client-first-name>firstname4</client-first-name>
+			</client>
+		</account>
+	</instance>
+	<instance>
+		<index>8</index>
+		<account>
+			<label>Savings Account</label>
+			<balance>1500.0</balance>
+			<account-number>8</account-number>
+			<client>
+				<client-account>4</client-account>
+				<client-name>name4</client-name>
+				<client-first-name>firstname4</client-first-name>
+			</client>
+		</account>
+	</instance>
+</accounts>

@@ -165,6 +165,7 @@ public class Main {
 	}
 
 	// Exercise 2.1 JSON file of flows
+	// General function for writing new line (both JSON and XML file)
 	static void writeNewLine(String inStringToWrite, String inPath) {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(inPath, true))) {
 			writer.newLine();
@@ -233,9 +234,8 @@ public class Main {
 		System.out.println("Writing XML File...");
 		String path = "XML Account Array.XML";
 
-		// Write begin bracket [
+		// Write header
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
-//			writer.write(inAccountList.toString());
 			writer.write("<?xml version=\"1.0\"?>");
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -247,8 +247,10 @@ public class Main {
 		for (int i = 0; i < inAccountList.size(); i++) {
 			stringToWrite = "\t<instance>";
 			writeNewLine(stringToWrite, path);
+			// HashMap Index
 			stringToWrite = "\t\t<index>" + (i + 1) + "</index>";
 			writeNewLine(stringToWrite, path);
+			// Account
 			stringToWrite = "\t\t<account>";
 			writeNewLine(stringToWrite, path);
 			stringToWrite = "\t\t\t<label>" + inAccountList.get(i + 1).getLabel() + "</label>";
@@ -257,6 +259,7 @@ public class Main {
 			writeNewLine(stringToWrite, path);
 			stringToWrite = "\t\t\t<account-number>" + inAccountList.get(i + 1).getAccountNo() + "</account-number>";
 			writeNewLine(stringToWrite, path);
+			// Client
 			stringToWrite = "\t\t\t<client>";
 			writeNewLine(stringToWrite, path);
 			stringToWrite = "\t\t\t\t<client-account>" + inAccountList.get(i + 1).getClient().getClientNo()
@@ -267,44 +270,13 @@ public class Main {
 			stringToWrite = "\t\t\t\t<client-first-name>" + inAccountList.get(i + 1).getClient().getFirstName()
 					+ "</client-first-name>";
 			writeNewLine(stringToWrite, path);
+			// End-Client
 			stringToWrite = "\t\t\t</client>";
 			writeNewLine(stringToWrite, path);
+			// End-Account
 			stringToWrite = "\t\t</account>";
 			writeNewLine(stringToWrite, path);
-//			// Start of individual Flow
-//			String stringToWrite = "\t{";
-//			writeNewLine(stringToWrite, path);
-//			// Body
-//			// comment
-//			if (inAccountList.get(i).getComment() == null) {
-//				stringToWrite = "\t\t\"comment\": " + inAccountList.get(i).getComment() + ",";
-//			} else {
-//				stringToWrite = "\t\t\"comment\": \"" + inAccountList.get(i).getComment() + "\",";
-//			}
-//			writeNewLine(stringToWrite, path);
-//			// identifier
-//			stringToWrite = "\t\t\"identifier\": " + inAccountList.get(i).getIdentifier() + ",";
-//			writeNewLine(stringToWrite, path);
-//			// amount
-//			stringToWrite = "\t\t\"amount\": " + inAccountList.get(i).getAmount() + ",";
-//			writeNewLine(stringToWrite, path);
-//			// target account number
-//			stringToWrite = "\t\t\"targetAccountNo\": " + inAccountList.get(i).getTargetAccountNo() + ",";
-//			writeNewLine(stringToWrite, path);
-//			// effect
-//			stringToWrite = "\t\t\"effect\": " + inAccountList.get(i).isEffect() + ",";
-//			writeNewLine(stringToWrite, path);
-//			// Date of Flow
-//			stringToWrite = "\t\t\"dateOfFlow\": \"" + inAccountList.get(i).getDateOfFlow() + "\"";
-//			writeNewLine(stringToWrite, path);
-//			// End of individual Flow
-//			if (i != (inAccountList.size() - 1)) {
-//				stringToWrite = "\t},";
-//				writeNewLine(stringToWrite, path);
-//			} else {
-//				stringToWrite = "\t}";
-//				writeNewLine(stringToWrite, path);
-//			}
+			// Write end-instance
 			stringToWrite = "\t</instance>";
 			writeNewLine(stringToWrite, path);
 		}
