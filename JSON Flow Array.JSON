@@ -1,1 +1,82 @@
-Flow identifier: 1, Amount: 50.0, Target account no.: 1, Effect: false, Date: 2023-12-17
+[
+	{
+		"comment": null,
+		"identifier": 1,
+		"amount": 50.0,
+		"targetAccountNo": 1,
+		"effect": false,
+		"dateOfFlow": "2023-12-17"
+	},
+	{
+		"comment": null,
+		"identifier": 1,
+		"amount": 100.5,
+		"targetAccountNo": 1,
+		"effect": false,
+		"dateOfFlow": "2023-12-17"
+	},
+	{
+		"comment": null,
+		"identifier": 1,
+		"amount": 1500.0,
+		"targetAccountNo": 2,
+		"effect": false,
+		"dateOfFlow": "2023-12-17"
+	},
+	{
+		"comment": null,
+		"identifier": 1,
+		"amount": 100.5,
+		"targetAccountNo": 3,
+		"effect": false,
+		"dateOfFlow": "2023-12-17"
+	},
+	{
+		"comment": null,
+		"identifier": 1,
+		"amount": 1500.0,
+		"targetAccountNo": 4,
+		"effect": false,
+		"dateOfFlow": "2023-12-17"
+	},
+	{
+		"comment": null,
+		"identifier": 1,
+		"amount": 100.5,
+		"targetAccountNo": 5,
+		"effect": false,
+		"dateOfFlow": "2023-12-17"
+	},
+	{
+		"comment": null,
+		"identifier": 1,
+		"amount": 1500.0,
+		"targetAccountNo": 6,
+		"effect": false,
+		"dateOfFlow": "2023-12-17"
+	},
+	{
+		"comment": null,
+		"identifier": 1,
+		"amount": 100.5,
+		"targetAccountNo": 7,
+		"effect": false,
+		"dateOfFlow": "2023-12-17"
+	},
+	{
+		"comment": null,
+		"identifier": 1,
+		"amount": 1500.0,
+		"targetAccountNo": 8,
+		"effect": false,
+		"dateOfFlow": "2023-12-17"
+	},
+	{
+		"comment": null,
+		"identifier": 1,
+		"amount": 50.0,
+		"targetAccountNo": 2,
+		"effect": false,
+		"dateOfFlow": "2023-12-17"
+	}
+]
