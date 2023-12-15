@@ -167,12 +167,13 @@ public class Main {
 		}
 	}
 
-	static void writeJsonFile() {
+	// Exercise 2.1 JSON file of flows
+	static void writeJsonFile(ArrayList<Flow> inFlowList) {
 		System.out.println("");
 		System.out.println("Writing JSON File...");
-		Path path = Paths.get("JSON Flow Array.txt");
+		Path path = Paths.get("JSON Flow Array.JSON");
 		try (BufferedWriter writer = Files.newBufferedWriter(path, Charset.forName("UTF-8"))) {
-			writer.write("To be, or not to be. That is the question.");
+			writer.write(inFlowList.get(0).toString());
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
@@ -204,6 +205,6 @@ public class Main {
 		showSortedAccountTable(myAccountList);
 
 		// Exercise 2.1 JSON file of flows
-		writeJsonFile();
+		writeJsonFile(myFlowList);
 	}
 }
