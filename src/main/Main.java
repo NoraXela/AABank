@@ -199,7 +199,7 @@ public class Main {
 			}
 			writeNewLine(stringToWrite, path);
 			// identifier
-			stringToWrite = "\t\t\"identifier\": " + inFlowList.get(0).getIdentifier() + ",";
+			stringToWrite = "\t\t\"identifier\": " + inFlowList.get(i).getIdentifier() + ",";
 			writeNewLine(stringToWrite, path);
 			// amount
 			stringToWrite = "\t\t\"amount\": " + inFlowList.get(i).getAmount() + ",";
